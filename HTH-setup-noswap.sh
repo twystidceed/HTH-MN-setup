@@ -231,18 +231,16 @@ logintimestamps=1
 listen=1
 server=1
 daemon=1
-maxconnections=12
+maxconnections=10
 externalip=$publicip:$PORT
 masternode=1
 masternodeprivkey=$genkey
-addnode=95.179.177.194:35888
-addnode=108.61.164.206:35888
-addnode=45.77.66.199:35888
 EOF
 
 #Finally, starting daemon with new hth.conf
 hthd -daemon
-delay 5
+delay 10
+hth-cli addnode 95.179.161.121:35888 onetry
 
 #Setting auto start cron job for hthd
 cronjob="@reboot sleep 30 && hthd -daemon"
