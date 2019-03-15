@@ -160,13 +160,11 @@ rpcpassword=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 
  #Installing Daemon
  cd ~
-wget https://github.com/HTHcoin/HTH/releases/download/v1.2/hth-linux.zip
-unzip hth-linux.zip 
-cp ~/linux/hthd ~/HTH-MN-setup
-cp ~/linux/hth-cli ~/HTH-MN-setup
-rm -rf hth-linux.zip
-rm -R linux
- 
+ cd ~/HTH-MN-setup
+wget https://github.com/HTHcoin/HTH/releases/download/v1.2/hth-daemon-linux.tar.gz
+dtrx -n -f hth-daemon-linux.tar.gz
+rm -rf hth-daemon-linux.tar.gz
+
  stop_daemon
  
  # Deploy binaries to /usr/bin
