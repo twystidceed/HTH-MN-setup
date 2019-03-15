@@ -237,7 +237,7 @@ EOF
 
 #Finally, starting daemon with new hth.conf
 hthd -daemon
-delay 10
+delay 15
 hth-cli addnode 95.179.161.121:35888 onetry
 
 #Setting auto start cron job for hthd
