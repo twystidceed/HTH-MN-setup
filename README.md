@@ -4,3 +4,6 @@ Help The Homeless - Easy Masternode setup
 <li>sudo apt-get update
 <li>sudo apt-get install git
 <li>git clone https://github.com/twystidceed/HTH-MN-setup.git && cd HTH-MN-setup && bash HTH-setup.sh
+  
+<LI>MNW setup
+<li>git clone https://github.com/twystidceed/HTH-MN-setup.git && cd HTH-MN-setup && bash HTH-setup-noswap.sh
