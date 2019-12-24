@@ -59,7 +59,7 @@ genkey=$1
 
 clear
 
-echo -e "${YELLOW}Help The Homeless Masternode Setup Script V1 for Ubuntu 16.04 LTS${NC}"
+echo -e "${YELLOW}Help The Homeless Masternode Setup Script V1.1 Alpha for Ubuntu 16.04 LTS${NC}"
 echo "Do you want me to generate a masternode private key for you? [y/n]"
   read DOSETUP
 if [[ $DOSETUP =~ "n" ]] ; then
@@ -161,7 +161,7 @@ rpcpassword=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
  #Installing Daemon
  cd ~
  cd ~/HTH-MN-setup
-wget https://github.com/HTHcoin/HTH/releases/download/v1.2/hth-daemon-linux.tar.gz
+wget https://github.com/HTHcoin/HTH-Legacy/releases/download/v1.2.1/hth_1.2.1_daemon_linux.zip
 dtrx -n -f hth-daemon-linux.tar.gz
 rm -rf hth-daemon-linux.tar.gz
 
@@ -238,7 +238,7 @@ EOF
 #Finally, starting daemon with new hth.conf
 hthd -daemon
 delay 15
-hth-cli addnode 95.179.161.121:35888 onetry
+hth-cli addnode 116.203.226.187:35888 onetry
 
 #Setting auto start cron job for hthd
 cronjob="@reboot sleep 30 && hthd -daemon"
