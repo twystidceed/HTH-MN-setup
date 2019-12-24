@@ -182,8 +182,8 @@ fi
  cd ~
  cd ~/HTH-MN-setup
 wget https://github.com/HTHcoin/HTH-Legacy/releases/download/v1.2.1/hth_1.2.1_daemon_linux.zip
-dtrx -n -f hth-daemon-linux.tar.gz
-rm -rf hth-daemon-linux.tar.gz
+dtrx -n -f hth_1.2.1_daemon_linux.zip
+rm -rf hth_1.2.1_daemon_linux.zip
  
  stop_daemon
  
