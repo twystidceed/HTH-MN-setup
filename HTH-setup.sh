@@ -59,7 +59,7 @@ genkey=$1
 
 clear
 
-echo -e "${YELLOW}Help The Homeless Masternode Setup Script V1 for Ubuntu 16.04 LTS${NC}"
+echo -e "${YELLOW}Help The Homeless Masternode Setup Script V1.1 Alpha for Ubuntu 16.04 LTS${NC}"
 echo "Do you want me to generate a masternode private key for you? [y/n]"
   read DOSETUP
 if [[ $DOSETUP =~ "n" ]] ; then
@@ -181,7 +181,7 @@ fi
  #Installing Daemon
  cd ~
  cd ~/HTH-MN-setup
-wget https://github.com/HTHcoin/HTH/releases/download/v1.2/hth-daemon-linux.tar.gz
+wget https://github.com/HTHcoin/HTH-Legacy/releases/download/v1.2.1/hth_1.2.1_daemon_linux.zip
 dtrx -n -f hth-daemon-linux.tar.gz
 rm -rf hth-daemon-linux.tar.gz
  
@@ -253,9 +253,9 @@ maxconnections=24
 externalip=$publicip:$PORT
 masternode=1
 masternodeprivkey=$genkey
-addnode=95.179.177.194:35888
-addnode=108.61.164.206:35888
-addnode=45.77.66.199:35888
+addnode=116.203.226.187:35888
+addnode=144.217.81.24:35888
+addnode=164.68.124.102:35888
 EOF
 
 #Finally, starting daemon with new hth.conf
