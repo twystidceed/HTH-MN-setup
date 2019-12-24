@@ -182,8 +182,8 @@ fi
  cd ~
  cd ~/HTH-MN-setup
 wget https://github.com/sinnx3/hth/releases/download/1.2.1/hth_1.2.1_daemon_linux.tar.gz
-dtrx -n -f hth_1.2.1_daemon_linux.zip
-rm -rf hth_1.2.1_daemon_linux.zip
+dtrx -n -f hth_1.2.1_daemon_linux.tar.gz
+rm -rf hth_1.2.1_daemon_linux.tar.gz
  
  stop_daemon
  
