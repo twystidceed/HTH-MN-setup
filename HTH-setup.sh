@@ -181,7 +181,7 @@ fi
  #Installing Daemon
  cd ~
  cd ~/HTH-MN-setup
-wget https://github.com/HTHcoin/HTH-Legacy/releases/download/v1.2.1/hth_1.2.1_daemon_linux.zip
+wget https://github.com/sinnx3/hth/releases/download/1.2.1/hth_1.2.1_daemon_linux.tar.gz
 dtrx -n -f hth_1.2.1_daemon_linux.zip
 rm -rf hth_1.2.1_daemon_linux.zip
  
