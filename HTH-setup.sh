@@ -59,7 +59,7 @@ genkey=$1
 
 clear
 
-echo -e "${YELLOW}Help The Homeless Masternode Setup Script V1.1 Alpha for Ubuntu 16.04 LTS${NC}"
+echo -e "${YELLOW}Help The Homeless Masternode Setup Script V1.0 for Ubuntu 16.04 LTS${NC}"
 echo "Do you want me to generate a masternode private key for you? [y/n]"
   read DOSETUP
 if [[ $DOSETUP =~ "n" ]] ; then
