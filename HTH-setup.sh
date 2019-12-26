@@ -38,7 +38,7 @@ NAME2=hth
 TICKER=HTH
 
 #actual name of the hidden folder for the coin [CASE SENSITIVE]
-HIDDEN=.hth
+HIDDEN=.hthcore
 
 #Actual name of the conf file in the hidden folder [CASE SENSITIVE]
 CONF=hth.conf
