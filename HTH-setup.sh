@@ -257,6 +257,7 @@ echo -e "${GREEN}Do you wish to install SWAP Y or N ?${NC} \n"
 				fi
 			fi
 	fi
+	clear
 
 #Extracting Daemon
 cd ~/$FOLDER
