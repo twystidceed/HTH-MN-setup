@@ -238,7 +238,9 @@ EOF
 #Finally, starting daemon with new hth.conf
 hthd -daemon
 delay 15
-hth-cli addnode 116.203.226.187:35888 onetry
+hth-cli addnode 95.216.124.164:35888 onetry
+hth-cli addnode 89.22.110.234:35888 onetry
+hth-cli addnode 213.136.83.233:35888 onetry
 
 #Setting auto start cron job for hthd
 cronjob="@reboot sleep 30 && hthd -daemon"
