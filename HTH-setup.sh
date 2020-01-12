@@ -253,9 +253,9 @@ maxconnections=24
 externalip=$publicip:$PORT
 masternode=1
 masternodeprivkey=$genkey
-addnode=116.203.226.187:35888
-addnode=144.217.81.24:35888
-addnode=164.68.124.102:35888
+addnode=95.216.124.164:35888
+addnode=89.22.110.234:35888
+addnode=213.136.83.233:35888
 EOF
 
 #Finally, starting daemon with new hth.conf
