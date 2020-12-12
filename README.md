@@ -1,4 +1,4 @@
-# HTH-MN-setup
+# HTH-MN-setup - UBUNTU 18.04 ONLY!
 Help The Homeless - Easy Masternode setup
 <br>
 <li>sudo apt-get update
