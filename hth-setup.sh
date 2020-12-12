@@ -327,11 +327,15 @@ cat <<EOF > ~/$HIDDEN/$CONF
 rpcuser=$rpcuser
 rpcpassword=$rpcpassword
 rpcallowip=127.0.0.1
+#----
 listen=1
 server=1
 daemon=1
+#----
+masternode=1
 masternodeblsprivkey=$genkey3
 externalip=$publicip
+#----
 addnode=$ADDNODEA
 addnode=$ADDNODEB
 addnode=$ADDNODEC
