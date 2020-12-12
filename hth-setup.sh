@@ -291,8 +291,8 @@ cd ~/$FOLDER
 
 echo -e "${YELLOW}Creating $CONF...${NC}"
 
-cat <<EOF > ~/$HIDDEN/$CONF
-rpcuser=$rpcuser
+cat <<EOF > ~/.helpthehomeless/helpthehomeless.conf
+rcuser=$rpcuser
 rpcpassword=$rpcpassword
 EOF
 
