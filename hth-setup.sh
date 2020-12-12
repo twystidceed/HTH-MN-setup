@@ -50,7 +50,7 @@ TICKER=HTH
 HIDDEN=.helpthehomeless
 
 #Actual name of the conf file in the hidden folder [CASE SENSITIVE]
-CONF=hth.conf
+CONF=helpthehomeless.conf
 
 #actual name od the coin daemon [CASE SENSITIVE]
 DAEMON=helpthehomelessd
