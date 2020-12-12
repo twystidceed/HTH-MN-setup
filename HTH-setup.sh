@@ -1,5 +1,5 @@
 #!/bin/bash
-# Twystid's Masternode Setup Script V3.0 for Ubuntu 16.04 LTS
+# Twystid's Masternode Setup Script V3.2 for Ubuntu
 #
 # Script will attempt to auto detect primary public IP address
 # This script is capable of installing with or without swap depending on your VPS
@@ -15,15 +15,24 @@ PURPLE='\033[1;35m'
 NC='\033[0m' # No Color
 
 #TCP port
-PORT=35888
-RPC=35888
+PORT=65000
+RPC=59999
 
 #GLOBAL VARIABLES - Check the daemon deployment section for proper deployment
+
 #this is the Github Source for the binaries
-SOURCE='https://github.com/HTHcoin/HTH-Legacy/releases/download/v1.2.1/hth_1.2.1_daemon_linux.zip'
+
+SOURCE=https://github.com/HTHcoin/helpthehomelesscoin/releases/download/0.14.08/homeless-0.14.08-ubuntu18.tar.gz
+
 
 #The archive itself from the source
-ARCHIVE=hth_1.2.1_daemon_linux.zip
+
+ARCHIVE=homeless-0.14.08-ubuntu18.tar.gz
+
+#ADDNODES
+ADDNODEA=155.138.198.71:65000
+ADDNODEB=173.212.221.11:65000 
+ADDNODEC=95.217.67.185:65000
 
 #name of the folder created with the git clone when clonign the repository
 FOLDER=HTH-MN-setup
@@ -32,28 +41,34 @@ FOLDER=HTH-MN-setup
 NAME='Help The Homeless'
 
 #name2 is the actual name of the binary when installed on VPS [CASE SENSISTIVE]
-NAME2=hth
+NAME2=helpthehomeless
 
 #Simply the Ticker of the coin for referenceing in the script - no usage case not sensitive
 TICKER=HTH
 
 #actual name of the hidden folder for the coin [CASE SENSITIVE]
-HIDDEN=.hthcore
+HIDDEN=.helpthehomeless
 
 #Actual name of the conf file in the hidden folder [CASE SENSITIVE]
 CONF=hth.conf
 
 #actual name od the coin daemon [CASE SENSITIVE]
-DAEMON=hthd
+DAEMON=helpthehomelessd
 
 #Actual name of the coin daemon -cli [CASE SENSITIVE]
-CLI=hth-cli
+CLI=helpthehomeless-cli
 
 #name of the monitor script [CASE SENSITIVE]
 MONITOR=hthmon.sh
 
 #only enable if needed due to binaries being extracted to a second folder within the cloned folder
-#FOLDER2=qyno-2.0.0/
+#FOLDER2=if needed 
+
+
+#####################################
+#     END OF GLOBAL VARIABLES       #
+#####################################
+
 
 #Clear keyboard input buffer
 function clear_stdin { while read -r -t 0; do read -r; done; }
@@ -80,15 +95,7 @@ function stop_daemon {
     fi
 }
 
-#Function detect_ubuntu
 
- if [[ $(lsb_release -d) == *16.04* ]]; then
-   UBUNTU_VERSION=16
-else
-   echo -e "${RED}You are not running Ubuntu 16.04, Installation is cancelled.${NC}"
-   exit 1
-
-fi
 
 
 #Process command line parameters
@@ -111,32 +118,32 @@ echo -e "${PURPLE}      #     #  #  #   # #  #  #   # # #     # ${NC}"
 echo -e "${PURPLE}      #     #  #  #    ##  #  #    ## #     # ${NC}"
 echo -e "${PURPLE}      #     # ### #     # ### #     #  #####  ${NC}"
 echo -e
-echo -e "${GREEN}$NAME Masternode Setup Script V3 for Ubuntu 16.04 LTS${NC}"
+echo -e "${GREEN}$NAME Masternode Setup Script V3 for Ubuntu LTS${NC}"
 echo -e
+echo -e "${GREEN}This script contains multiple options - please choose proper selections${NC}"
+echo -e
+echo -e "${YELLOW}Dont forget to subscribe to the HTH Github for update notifications!${NC}"
 echo -e 
-sleep 3
+sleep 5
 
-echo -e "${YELLOW}Do you want me to generate a masternode private key for you? [y/n]${NC}"
-  read DOSETUP
-if [[ $DOSETUP =~ "n" ]] ; then
-          read -e -p "Enter your private key:" genkey;
-              read -e -p "Confirm your private key: " genkey2;
-fi
+enkey=$3
+#Enter the new BLS genkey
+clear
+echo -e "${YELLOW}AXE Coin DIP003 Masternode Setup Script V3 for Ubuntu 18.04 LTS${NC}"
+	read -e -p "Enter your BLS key:" genkey3;
+              read -e -p "Confirm your BLS key: " genkey4;
 
 #Confirming match
-  if [ $genkey = $genkey2 ]; then
+  if [ $genkey3 = $genkey4 ]; then
      echo -e "${GREEN}MATCH! ${NC} \a" 
 else 
-     echo -e "${RED} Error: Private keys do not match. Try again or let me generate one for you...${NC} \a";exit 1
+     echo -e "${RED} Error: BLS key do not match. Try again...${NC} \a";exit 1
 fi
 sleep .5
 clear
 
 # Determine primary public IP address
-
-sudo apt-get update -y
-
-dpkg -s dnsutils 2>/dev/null >/dev/null || sudo apt-get -y install dnsutils
+sudo apt-get -y install dnsutils
 publicip=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 if [ -n "$publicip" ]; then
@@ -161,21 +168,21 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
 sudo apt-get -y upgrade
 sudo apt-get -y dist-upgrade
 sudo apt-get -y autoremove
-sudo apt-get -y install wget nano htop jq
+sudo apt-get -y install wget nano htop jq dtrx
 sudo apt-get -y install libzmq3-dev
 sudo apt-get -y install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
 sudo apt-get -y install libevent-dev
-sudo apt-get install -y unzip
-sudo apt-get install -y dtrx
+sudo apt-get instal unzip
 sudo apt -y install software-properties-common
 sudo add-apt-repository ppa:bitcoin/bitcoin -y
 sudo apt-get -y update
 sudo apt-get -y install libdb4.8-dev libdb4.8++-dev
+sudo apt-get install unzip
 sudo apt-get -y install libminiupnpc-dev
 sudo apt-get -y install fail2ban
 sudo service fail2ban restart
 sudo apt-get install -y libdb5.3++-dev libdb++-dev libdb5.3-dev libdb-dev && ldconfig
-sudo apt-get install -y libzmq3-dev build-essential libssl-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libboost-system1.58.0 libboost1.58-all-dev libdb4.8++ libdb4.8 libdb4.8-dev libdb4.8++-dev libevent-pthreads-2.0-5
+sudo apt-get install -y unzip libzmq3-dev build-essential libssl-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libboost-system1.58.0 libboost1.58-all-dev libdb4.8++ libdb4.8 libdb4.8-dev libdb4.8++-dev libevent-pthreads-2.0-5
    fi
 
 #Network Settings
@@ -214,10 +221,9 @@ echo -e "${NC}"
 } &> /dev/null
 echo -ne '[###################] (100%)\n'
 
-#Generating Random Password for tourd JSON RPC
+#Generating Random Password for axed JSON RPC
 rpcuser=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 rpcpassword=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-
 
 echo -e "${YELLOW}=====================================================${NC}"
 echo -e "${YELLOW}=====================================================${NC}"
@@ -258,25 +264,25 @@ echo -e "${GREEN}Do you wish to install SWAP Y or N ?${NC} \n"
 			fi
 	fi
 	clear
-
-#Extracting Daemon
+	
+	
+	
+# INSTALLING BINARIES 	
 cd ~/$FOLDER
-sudo wget $SOURCE
-sudo dtrx -n -f $ARCHIVE
-rm -rf $ARCHIVE
-
- 
- stop_daemon
- 
- # Deploy binaries to /usr/bin
- cd ~/$FOLDER/$FOLDER2/
- sudo cp $NAME2* /usr/bin/
- sudo chmod 755 -R ~/$FOLDER
- sudo chmod 755 /usr/bin/$NAME2*
+	sudo wget $SOURCE
+	sudo dtrx -n -f $ARCHIVE
+	rm -rf $ARCHIVE
+	clear
+		
+# Deploy binaries to /usr/bin
+ cd ~/$FOLDER/
+	sudo cp $NAME2* /usr/bin/
+	sudo chmod 755 -R ~/$FOLDER
+	sudo chmod 755 /usr/bin/$NAME2*
  
  # Deploy masternode monitoring script
  cp ~/$FOLDER/$MONITOR /usr/local/bin/
- sudo chmod 711 /usr/local/bin/$MONITOR
+	sudo chmod 711 /usr/local/bin/$MONITOR
  
  #Create datadir
  if [ ! -f ~/$HIDDEN/$CONF ]; then 
@@ -285,16 +291,14 @@ rm -rf $ARCHIVE
 
 echo -e "${YELLOW}Creating $CONF...${NC}"
 
-# If genkey was not supplied in command line, we will generate private key on the fly
-if [ -z $genkey ]; then
-    cat <<EOF > ~/$HIDDEN/$CONF
+cat <<EOF > ~/$HIDDEN/$CONF
 rpcuser=$rpcuser
 rpcpassword=$rpcpassword
 EOF
 
-    sudo chmod 755 -R ~/$HIDDEN/$CONF
+       sudo chmod 755 -R ~/$HIDDEN/$CONF
 
-    #Starting daemon first time just to generate masternode private key
+    #Starting daemon first time 
     $DAEMON -daemon
 echo -ne '[#         ] (10%)\r'
 sleep 10
@@ -317,39 +321,34 @@ sleep 10
 echo -ne '[##########] (100%)\r'
 echo -ne '\n'
 
-    #Generate masternode private key
-    echo -e "${YELLOW}Generating masternode private key...${NC}"
-    genkey=$($CLI masternode genkey)
-    if [ -z "$genkey" ]; then
-        echo -e "${RED}ERROR: Can not generate masternode private key.${NC} \a"
-        echo -e "${RED}ERROR: Reboot VPS and try again or supply existing genkey as a parameter.${NC}"
-        exit 1
-    fi
-    
-    #Stopping daemon to create $CONF
+	#Stopping daemon to create conf
     stop_daemon
-fi
 
-# Create $CONF
+# Create conf
 cat <<EOF > ~/$HIDDEN/$CONF
 rpcuser=$rpcuser
 rpcpassword=$rpcpassword
+#---
 rpcport=$RPC
 rpcallowip=127.0.0.1
+#---
 listen=1
 server=1
 daemon=1
-logintimestamps=1
-maxconnections=10
+#---
+#logintimestamps=1
+maxconnections=128
 externalip=$publicip:$PORT
-masternode=1
-masternodeprivkey=$genkey
+#masternode=1
+masternodeblsprivkey=$genkey3
+addnode=$ADDNODEA
+addnode=$ADDNODEB
+addnode=$ADDNODEC
 EOF
 
 #Finally, starting daemon with new $CONF
-delay 30
 $DAEMON -daemon
-delay 5
+delay 10
 
 #Setting auto start cron job daemon
 cronjob="@reboot sleep 30 && $DAEMON -daemon"
@@ -450,8 +449,10 @@ ${GREEN}no donations at this time ${NC}
 ...and make sure to check back for updates!
 
 Contact Twystidceed#4126 on discord if you need additional support
+
+Do not forget to follow the HTH GitHub and Discords so you do not miss out on important Updates!!
 "
-delay 30
+delay 10
 # Run $MONITOR
 sudo $MONITOR
 
