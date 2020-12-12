@@ -359,23 +359,8 @@ echo -e "=======================================================================
 ${YELLOW}Masternode setup is complete!${NC}
 ========================================================================
 Masternode was installed with VPS IP Address: ${YELLOW}$publicip${NC}
-Masternode Private Key: ${YELLOW}$genkey${NC}
-Now you can add the following string to the masternode.conf file
-for your Hot Wallet (the wallet with your $TICKER collateral funds):
+Masternode BLS Key: ${YELLOW}$genkey3${NC}
 ======================================================================== \a"
-echo -e "${YELLOW}mn1 $publicip:$PORT $genkey TxId TxIdx${NC}"
-echo -e "========================================================================
-Use your mouse to copy the whole string above into the clipboard by
-tripple-click + single-click (Dont use Ctrl-C) and then paste it 
-into your ${YELLOW}masternode.conf${NC} file and replace:
-    ${YELLOW}mn1${NC} - with your desired masternode name (alias)
-    ${YELLOW}TxId${NC} - with Transaction Id from masternode outputs
-    ${YELLOW}TxIdx${NC} - with Transaction Index (0 or 1)
-     Remember to save the masternode.conf and restart the wallet!
-To introduce your new masternode to the $TICKER network, you need to
-issue a masternode start command from your wallet, which proves that
-the collateral for this node is secured."
-
 clear_stdin
 read -p "*** Press any key to continue ***" -n1 -s
 
