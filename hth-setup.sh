@@ -323,24 +323,19 @@ echo -ne '\n'
 
 	#Stopping daemon to create conf
     stop_daemon
+	delay 10
 
 # Create conf
 cat <<EOF > ~/$HIDDEN/$CONF
+
 rpcuser=$rpcuser
 rpcpassword=$rpcpassword
-#---
-rpcport=$RPC
 rpcallowip=127.0.0.1
-#---
 listen=1
 server=1
 daemon=1
-#---
-#logintimestamps=1
-maxconnections=128
-externalip=$publicip:$PORT
-#masternode=1
 masternodeblsprivkey=$genkey3
+externalip=$publicip
 addnode=$ADDNODEA
 addnode=$ADDNODEB
 addnode=$ADDNODEC
