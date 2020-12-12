@@ -137,7 +137,7 @@ echo -e "${YELLOW}AXE Coin DIP003 Masternode Setup Script V3 for Ubuntu 18.04 LT
   if [ $genkey3 = $genkey4 ]; then
      echo -e "${GREEN}MATCH! ${NC} \a" 
 else 
-     echo -e "${RED} Error: BLS key do not match. Try again...${NC} \a";exit 1
+     echo -e "${RED} Error: BLS key do not match. Restart script and try again...${NC} \a";exit 1
 fi
 sleep .5
 clear
@@ -296,34 +296,30 @@ rcuser=$rpcuser
 rpcpassword=$rpcpassword
 EOF
 
-       sudo chmod 755 -R ~/$HIDDEN/$CONF
+sudo chmod 755 -R ~/$HIDDEN/$CONF
 
-    #Starting daemon first time 
-    $DAEMON -daemon
-echo -ne '[#         ] (10%)\r'
-sleep 10
-echo -ne '[##        ] (20%)\r'
-sleep 10
-echo -ne '[###       ] (30%)\r'
-sleep 10 
-echo -ne '[####      ] (40%)\r'
-sleep 10
-echo -ne '[#####     ] (50%)\r'
-sleep 10
-echo -ne '[######    ] (60%)\r'
-sleep 10
-echo -ne '[#######   ] (70%)\r'
-sleep 10
-echo -ne '[########  ] (80%)\r'
-sleep 10
-echo -ne '[######### ] (90%)\r'
-sleep 10
-echo -ne '[##########] (100%)\r'
-echo -ne '\n'
+# echo -ne '[#         ] (10%)\r'
+# sleep 10
+# echo -ne '[##        ] (20%)\r'
+# sleep 10
+# echo -ne '[###       ] (30%)\r'
+# sleep 10 
+# echo -ne '[####      ] (40%)\r'
+# sleep 10
+# echo -ne '[#####     ] (50%)\r'
+# sleep 10
+# echo -ne '[######    ] (60%)\r'
+# sleep 10
+# echo -ne '[#######   ] (70%)\r'
+# sleep 10
+# echo -ne '[########  ] (80%)\r'
+# sleep 10
+# echo -ne '[######### ] (90%)\r'
+# sleep 10
+# echo -ne '[##########] (100%)\r'
+# echo -ne '\n'
 
-	#Stopping daemon to create conf
-    stop_daemon
-	delay 10
+
 
 # Create conf
 cat <<EOF > ~/$HIDDEN/$CONF
