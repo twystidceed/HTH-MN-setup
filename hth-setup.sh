@@ -163,27 +163,73 @@ then
     echo -e "${GREEN}Dependencies already installed...${NC}"
 else
     echo -e "${GREEN}Updating system and installing required packages...${NC}"
+	
+#DEPENCDENCY INStALL
+echo -e "${YELLOW}=====================================================${NC}"
+echo -e "${YELLOW}=====================================================${NC}"
+echo -e 
+echo -e "${PURPLE}===========Dependency Install================${NC}"
+echo -e
+echo -e "${RED}Skip install for nodes previously configured for time.!${NC}"
+echo -e "${RED}IF UNSURE PRESS Y - If you are missing any, the daemon will fail to launch.!${NC}"
+echo -e 
+echo -e "${GREEN}Select Y or N to continue${NC}"
 
-sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
-sudo apt-get -y upgrade
-sudo apt-get -y dist-upgrade
-sudo apt-get -y autoremove
-sudo apt-get -y install wget nano htop jq dtrx
-sudo apt-get -y install libzmq3-dev
-sudo apt-get -y install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
-sudo apt-get -y install libevent-dev
-sudo apt-get instal unzip
-sudo apt -y install software-properties-common
-sudo add-apt-repository ppa:bitcoin/bitcoin -y
-sudo apt-get -y update
-sudo apt-get -y install libdb4.8-dev libdb4.8++-dev
-sudo apt-get install unzip
-sudo apt-get -y install libminiupnpc-dev
-sudo apt-get -y install fail2ban
-sudo service fail2ban restart
-sudo apt-get install -y libdb5.3++-dev libdb++-dev libdb5.3-dev libdb-dev && ldconfig
-sudo apt-get install -y unzip libzmq3-dev build-essential libssl-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libboost-system1.58.0 libboost1.58-all-dev libdb4.8++ libdb4.8 libdb4.8-dev libdb4.8++-dev libevent-pthreads-2.0-5
-   fi
+ read DEPS
+ 
+ if [[ $DEPS =~ "y" ]] ; then
+	echo "installing Dependencies"
+	sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
+	sudo apt-get -y upgrade
+	sudo apt-get -y dist-upgrade
+	sudo apt-get -y autoremove
+	sudo apt-get -y install wget nano htop jq dtrx
+	sudo apt-get -y install libzmq3-dev
+	sudo apt-get -y install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+	sudo apt-get -y install libevent-dev
+	sudo apt-get instal unzip
+	sudo apt -y install software-properties-common
+	sudo add-apt-repository ppa:bitcoin/bitcoin -y
+	sudo apt-get -y update
+	sudo apt-get -y install libdb4.8-dev libdb4.8++-dev
+	sudo apt-get install unzip
+	sudo apt-get -y install libminiupnpc-dev
+	sudo apt-get -y install fail2ban
+	sudo service fail2ban restart
+	sudo apt-get install -y libdb5.3++-dev libdb++-dev libdb5.3-dev libdb-dev && ldconfig
+	sudo apt-get install -y unzip libzmq3-dev build-essential libssl-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libboost-system1.58.0 libboost1.58-all-dev libdb4.8++ libdb4.8 libdb4.8-dev libdb4.8++-dev libevent-pthreads-2.0-5
+	
+	else
+	if [ -d "/var/lib/fail2ban/" ]; 
+		then
+			echo -e "${GREEN}Dependencies already installed...${NC}"
+		else
+			echo -e "${GREEN}Updating system and installing required packages...${NC}"
+
+			sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
+			sudo apt-get -y upgrade
+			sudo apt-get -y dist-upgrade
+			sudo apt-get -y autoremove
+			sudo apt-get -y install wget nano htop jq dtrx
+			sudo apt-get -y install libzmq3-dev
+			sudo apt-get -y install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+			sudo apt-get -y install libevent-dev
+			sudo apt-get instal unzip
+			sudo apt -y install software-properties-common
+			sudo add-apt-repository ppa:bitcoin/bitcoin -y
+			sudo apt-get -y update
+			sudo apt-get -y install libdb4.8-dev libdb4.8++-dev
+			sudo apt-get install unzip
+			sudo apt-get -y install libminiupnpc-dev
+			sudo apt-get -y install fail2ban
+			sudo service fail2ban restart
+			sudo apt-get install -y libdb5.3++-dev libdb++-dev libdb5.3-dev libdb-dev && ldconfig
+			sudo apt-get install -y unzip libzmq3-dev build-essential libssl-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libboost-system1.58.0 libboost1.58-all-dev libdb4.8++ libdb4.8 libdb4.8-dev libdb4.8++-dev libevent-pthreads-2.0-5
+		fi
+fi
+
+
+
 
 #Network Settings
 echo -e "${GREEN}Installing Network Settings...${NC}"
