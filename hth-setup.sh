@@ -157,12 +157,7 @@ else
         exit 1
     fi
 fi
-#Check Deps
-if [ -d "/var/lib/fail2ban/" ]; 
-then
-    echo -e "${GREEN}Dependencies already installed...${NC}"
-else
-    echo -e "${GREEN}Updating system and installing required packages...${NC}"
+
 	
 #DEPENCDENCY INStALL
 echo -e "${YELLOW}=====================================================${NC}"
@@ -178,7 +173,7 @@ echo -e "${GREEN}Select Y or N to continue${NC}"
  read DEPS
  
  if [[ $DEPS =~ "y" ]] ; then
-	echo "installing Dependencies"
+	echo  -e "${GREEN}installing Dependencies${NC}"
 	sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
 	sudo apt-get -y upgrade
 	sudo apt-get -y dist-upgrade
@@ -227,7 +222,7 @@ echo -e "${GREEN}Select Y or N to continue${NC}"
 			sudo service fail2ban restart
 			sudo apt-get install -y libdb5.3++-dev libdb++-dev libdb5.3-dev libdb-dev && ldconfig
 			sudo apt-get install -y unzip libzmq3-dev build-essential libssl-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libboost-system1.58.0 libboost1.58-all-dev libdb4.8++ libdb4.8 libdb4.8-dev libdb4.8++-dev libevent-pthreads-2.0-5
-		fi
+	fi
 fi
 
 
