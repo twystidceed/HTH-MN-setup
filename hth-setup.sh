@@ -202,7 +202,9 @@ echo -e "${GREEN}Select Y or N to continue${NC}"
 	else
 	if [ -d "/var/lib/fail2ban/" ]; 
 		then
-			echo -e "${GREEN}Dependencies already installed...${NC}"
+			echo -e "${GREEN}Dependencies already installed...Skipping${NC}"
+            echo -e "${GREEN}If daemon fails, restart and select Y${NC}"
+
 		else
 			echo -e "${GREEN}Updating system and installing required packages...${NC}"
 
