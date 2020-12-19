@@ -268,6 +268,7 @@ echo -e "${GREEN}Do you wish to install SWAP Y or N ?${NC} \n"
 	
 	
 # INSTALLING BINARIES 	
+sudo apt-get install -y dtrx
 cd ~/$FOLDER
 	sudo wget $SOURCE
 	sudo dtrx -n -f $ARCHIVE
