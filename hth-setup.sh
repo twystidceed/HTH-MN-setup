@@ -199,6 +199,7 @@ echo -e "${GREEN}Select Y or N to continue${NC}"
 		then
 			echo -e "${GREEN}Dependencies already installed...Skipping${NC}"
             echo -e "${GREEN}If daemon fails, restart and select Y${NC}"
+            sleep 5
 
 		else
 			echo -e "${GREEN}Updating system and installing required packages...${NC}"
