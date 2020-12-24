@@ -424,9 +424,9 @@ or just type 'node' and hit <TAB> to autocomplete script name.
 Enjoy your $TICKER Masternode and thanks for using this setup script!
 
 If you found this script useful, please donate to : 
-${GREEN} BTC ${YELLOW} bc1q6fwu7sm8jv06xgcx74w556mcjs0vc2vk5glux8 ${NC}
-${GREEN} HTH ${YELLOW} hX54dpap61pjWsAt2TFwFjYZFMdSRzWcvt ${NC}
-${GREEN} ETH ${YELLOW} 0xaC314385d7B99E0e44666309652CAb8FB2f9B1D6 ${NC}
+${GREEN} BTC ${NC} - ${YELLOW} bc1q6fwu7sm8jv06xgcx74w556mcjs0vc2vk5glux8 ${NC}
+${GREEN} HTH ${NC} - ${YELLOW} hX54dpap61pjWsAt2TFwFjYZFMdSRzWcvt ${NC}
+${GREEN} ETH ${NC} - ${YELLOW} 0xaC314385d7B99E0e44666309652CAb8FB2f9B1D6 ${NC}
 
 ...and make sure to check back for updates!
 
