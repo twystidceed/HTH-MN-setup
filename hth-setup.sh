@@ -182,7 +182,6 @@ echo -e "${GREEN}Select Y or N to continue${NC}"
 	sudo apt-get -y install libzmq3-dev
 	sudo apt-get -y install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
 	sudo apt-get -y install libevent-dev
-	sudo apt-get instal unzip
 	sudo apt -y install software-properties-common
 	sudo add-apt-repository ppa:bitcoin/bitcoin -y
 	sudo apt-get -y update
@@ -225,8 +224,6 @@ echo -e "${GREEN}Select Y or N to continue${NC}"
 			sudo apt-get install -y unzip libzmq3-dev build-essential libssl-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libboost-system1.58.0 libboost1.58-all-dev libdb4.8++ libdb4.8 libdb4.8-dev libdb4.8++-dev libevent-pthreads-2.0-5
 	fi
 fi
-
-
 
 
 #Network Settings
@@ -342,28 +339,6 @@ rpcpassword=$rpcpassword
 EOF
 
 sudo chmod 755 -R ~/$HIDDEN/$CONF
-
-# echo -ne '[#         ] (10%)\r'
-# sleep 10
-# echo -ne '[##        ] (20%)\r'
-# sleep 10
-# echo -ne '[###       ] (30%)\r'
-# sleep 10 
-# echo -ne '[####      ] (40%)\r'
-# sleep 10
-# echo -ne '[#####     ] (50%)\r'
-# sleep 10
-# echo -ne '[######    ] (60%)\r'
-# sleep 10
-# echo -ne '[#######   ] (70%)\r'
-# sleep 10
-# echo -ne '[########  ] (80%)\r'
-# sleep 10
-# echo -ne '[######### ] (90%)\r'
-# sleep 10
-# echo -ne '[##########] (100%)\r'
-# echo -ne '\n'
-
 
 
 # Create conf
