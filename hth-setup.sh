@@ -186,7 +186,6 @@ echo -e "${GREEN}Select Y or N to continue${NC}"
 	sudo add-apt-repository ppa:bitcoin/bitcoin -y
 	sudo apt-get -y update
 	sudo apt-get -y install libdb4.8-dev libdb4.8++-dev
-	sudo apt-get install unzip
 	sudo apt-get -y install libminiupnpc-dev
 	sudo apt-get -y install fail2ban
 	sudo service fail2ban restart
@@ -431,7 +430,7 @@ then start the $DAEMON daemon back up:
              to edit:   ${YELLOW}nano ~/$HIDDEN/$CONF${NC}
              to start:  ${YELLOW}$DAEMON -daemon{NC}
 ========================================================================
-To view LSR debug log showing all MN network activity in realtime:
+To view %TICKER debug log showing all MN network activity in realtime:
              ${YELLOW}tail -f ~/$HIDDEN/debug.log${NC}
 ========================================================================
 To monitor system resource utilization and running processes:
