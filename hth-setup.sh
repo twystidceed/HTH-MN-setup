@@ -383,28 +383,8 @@ Masternode BLS Key: ${YELLOW}$genkey3${NC}
 clear_stdin
 read -p "*** Press any key to continue ***" -n1 -s
 
-echo -e "1) Wait for the node wallet on this VPS to sync with the other nodes
-on the network. Eventually the 'Is Synced' status will change
-to 'true', which will indicate a complete sync, although it may take
-from several minutes to several hours depending on the network state.
-Your initial Masternode Status may read:
-    ${YELLOW}Node just started, not yet activated${NC} or
-    ${YELLOW}Node  is not in masternode list${NC}, which is normal and expected.
-2) Wait at least until 'IsBlockchainSynced' status becomes 'true' or status 999.
-
-At this point you can go to your wallet and issue a start
-command by either using Debug Console:
-    Tools->Debug Console-> enter: ${YELLOW}masternode start-alias mn1${NC}
-    where ${YELLOW}mn1${NC} is the name of your masternode (alias)
-    as it was entered in the masternode.conf file
-    
-or by using wallet GUI:
-    Masternodes -> Select masternode -> RightClick -> ${YELLOW}start alias${NC}
-Once completed step (2), return to this VPS console and wait for the
-Masternode Status to change to: 'Masternode successfully started'.
-This will indicate that your masternode is fully functional and
-you can celebrate this achievement!
-
+echo -e 
+"
 Currently your masternode is syncing with the $TICKER network...
 The following screen will display in real-time
 the list of peer connections, the status of your masternode,
