@@ -383,16 +383,6 @@ Masternode BLS Key: ${YELLOW}$genkey3${NC}
 clear_stdin
 read -p "*** Press any key to continue ***" -n1 -s
 
-echo -e 
-"
-Currently your masternode is syncing with the $TICKER network...
-The following screen will display in real-time
-the list of peer connections, the status of your masternode,
-node synchronization status and additional network and node stats.
-"
-clear_stdin
-read -p "*** Press any key to continue ***" -n1 -s
-
 echo -e "
 ${GREEN}...scroll up to see previous screens...${NC}
 Here are some useful commands and tools for masternode troubleshooting:
